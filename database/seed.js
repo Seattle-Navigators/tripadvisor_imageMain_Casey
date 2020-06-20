@@ -7,11 +7,11 @@ const Carousel = require('./Carousel.js');
 // images:[Map]
 const data = [
   {
-    id: 1,
+    uniqueLoc: 1,
     rating: 4,
     review: ['lalala', 'lololol'],
     isHearted: true,
-    image: [
+    images: [
       {
         url: 'cool',
         report: false,
@@ -26,11 +26,11 @@ const data = [
 
   },
   {
-    locId: 2,
+    uniqueLoc: 2,
     rating: 5,
     review: ['zezezez', 'xexexexe'],
     isHearted: false,
-    image: [
+    images: [
       {
         url: 'nice',
         report: true,
@@ -49,7 +49,8 @@ const data = [
 
 const addTestData = function () {
   Carousel.create(data)
-    .then(() => db.disconnect());
+    // .then(() => db.disconnect())
+    // .catch();
 };
 
 addTestData();

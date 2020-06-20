@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const db = require('./index.js'); comenting out to avoid pomander error
+const db = require('./index.js');
 
 mongoose.Promise = global.Promise;
 
@@ -13,4 +13,17 @@ const carouselSchema = new mongoose.Schema({
 
 const Carousel = mongoose.model('Carousel', carouselSchema);
 
+//find all functions to pull the two entries from sample data
+//refactor or add aditional functions to specificaly pull image urls
+// const findAll=function(){
+//    return Carousel.find({})
+//    .then(function(response){
+//      return response
+//    })
+//    .catch(function(err){
+//      return err
+//    })
+// }
+
 module.exports = Carousel;
+//module.exports.findAll = findAll;

@@ -6,4 +6,4 @@ const db = mongoose.connect(mongoUri)
 
 // })
 
-module.exports = db;
+module.exports.db = db;
