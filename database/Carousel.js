@@ -5,6 +5,7 @@ mongoose.Promise = global.Promise;
 
 const carouselSchema = new mongoose.Schema({
   uniqueLoc: Number,
+  title: String,
   rating: Number,
   review: [String],
   isHearted: Boolean,
