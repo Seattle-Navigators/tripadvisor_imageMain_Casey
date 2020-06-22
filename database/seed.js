@@ -1,6 +1,6 @@
 const Chance = require('chance');
 const Carousel = require('./Carousel.js');
-const db = require('./index.js');
+const db = require('./index.js'); // eslint-disable-line
 
 const chance = new Chance();
 
@@ -38,6 +38,7 @@ list.forEach((loc) => {
     const timeOf = chance.year({ min: 2015, max: 2020 });
     const month = chance.month();
     const urlStart = 'https://ctj-hr-fec-carouseldata.s3-us-west-2.amazonaws.com/sampleData/';
+    // rando variable is a random number to complete the url path so each picture is random 1-100
     const rando = chance.integer({ min: 0, max: 100 });
     const urlEnd = '.JPG';
     const profile = 'https://ctj-hr-fec-carouseldata.s3-us-west-2.amazonaws.com/sampleData/profile.JPG';

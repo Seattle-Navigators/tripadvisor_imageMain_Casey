@@ -47,7 +47,6 @@ class Description extends React.Component{
             <div className="right-header">
               {loc.isHearted? <i className="fas fa-heart"></i>:<i className="far fa-heart"></i>}
               <div><i className="fas fa-external-link-alt"></i></div>
-
             </div>
             <h1>{loc.title}</h1>
             <div className="rating">{fullRating}{emptyRating}<span className="review-number">{revNumber} Reviews</span>
