@@ -4,7 +4,7 @@ const ENTRY_DIR = path.resolve(__dirname, 'client', 'src');
 const OUT_DIR = path.resolve(__dirname, 'public');
 
 module.exports = {
-  entry: path.resolve(ENTRY_DIR, 'index.js'),
+  entry: path.resolve(ENTRY_DIR, 'index.jsx'),
   output: {
     path: OUT_DIR,
     filename: 'bundle.js',
