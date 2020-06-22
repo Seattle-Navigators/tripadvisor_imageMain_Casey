@@ -81,5 +81,7 @@ padding:8px;
    font-weight: bold;
  }
  .right-header{
-
+  box-sizing: border-box;
+  position: right;
+  display: inline-block;
  }

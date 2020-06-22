@@ -44,13 +44,18 @@ class Description extends React.Component{
         <div className="top-container">
           <div className="top-wrapper">
             <div className="header">
+            <div className="right-header">
+              {loc.isHearted? <i className="fas fa-heart"></i>:<i className="far fa-heart"></i>}
+              <div><i className="fas fa-external-link-alt"></i></div>
+
+            </div>
             <h1>{loc.title}</h1>
             <div className="rating">{fullRating}{emptyRating}<span className="review-number">{revNumber} Reviews</span>
             </div>
             <div>
               <span id="misc-rev"><p id="mbold">#{chance.integer({min: 1, max: 5})}</p></span><span id="misc-revt"><p>of {chance.integer({min: 5, max: 25})} things to do at this destination</p></span>
             </div>
-            <div className="right-header">hello</div>
+
             </div>
 
           </div>
