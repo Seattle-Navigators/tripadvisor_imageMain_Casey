@@ -1,6 +1,6 @@
 const Chance = require('chance');
 const Carousel = require('./Carousel.js');
-// const db = require('./index.js');
+const db = require('./index.js');
 
 const chance = new Chance();
 

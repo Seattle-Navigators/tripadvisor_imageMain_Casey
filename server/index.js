@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const Carousel = require('../database/Carousel.js');
+const axios = require('axios')
 
 const app = express();
 const port = 3000;
@@ -13,13 +14,13 @@ app.use(bodyParser.urlencoded({
 app.use(express.static('public'));
 // app.get(' /api/carousel/:id', (req, res) => res.send('hello world!'));
 // /api/carousel/:id
-app.get('/api/carousels/:id', (req, res) => {
+app.get('/api/carousels/:id', function(req, res){
   const id = req.params.id;
   Carousel.find({ uniqueLoc: `${id}` })
-    .then((response) => {
+    .then(function(response){
       res.send(response);
     })
-    .catch((err) => {
+    .catch(function(err){
       res.send(err);
     });
 });

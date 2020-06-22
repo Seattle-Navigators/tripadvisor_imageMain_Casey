@@ -4,25 +4,32 @@ import axios from 'axios';
 class Description extends React.Component{
   constructor(props){
     super(props)
-    this.state={info:[]}
+    this.state = {
+      info:[]
+    };
   }
 
   componentDidMount() {
-    axios.get('/api/carousels/:id')
-    .then(function(locationData){
-      this.setState({ info: locationData });
+    axios.get('/api/carousels/007')
+    .then((locationData)=>{
+      this.setState({ info:locationData.data});
+      console.log(this.state.info[0].title)
 
     })
-    .catch(function(err){
+    .catch((err)=>{
       console.log(err)
 
-    })
+    });
   }
 
   render(){
-
+    console.log(this.state.info[0].title)
+    //let loc=this.state.info[0];
     return(
-      <div> xxx on a kill streak</div>
+    <div className = "description">
+      <h1></h1>
+      <p></p>
+    </div>
 
     )
   }
