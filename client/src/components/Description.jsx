@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import "./style.css";
 import Chance from 'chance';
+import BottomDescription from './BottomDescription.jsx';
+import MidBar from './MidBar.jsx';
 const chance = new Chance();
 class Description extends React.Component{
   constructor(props){
@@ -44,12 +46,13 @@ class Description extends React.Component{
         <div className="top-container">
           <div className="top-wrapper">
             <div className="header">
-            <div className="right-header">
-              {loc.isHearted? <i className="fas fa-heart"></i>:<i className="far fa-heart"></i>}
-              <div><i className="fas fa-external-link-alt"></i></div>
-            </div>
             <h1>{loc.title}</h1>
+            <div className="right-header">
+              {loc.isHearted? <i className="fas fa-heart"></i>:<i className="far fa-heart"></i>}</div>
+              <div className="right-icon"><i className="fas fa-external-link-alt"></i></div>
+
             <div className="rating">{fullRating}{emptyRating}<span className="review-number">{revNumber} Reviews</span>
+
             </div>
             <div>
               <span id="misc-rev"><p id="mbold">#{chance.integer({min: 1, max: 5})}</p></span><span id="misc-revt"><p>of {chance.integer({min: 5, max: 25})} things to do at this destination</p></span>
@@ -60,18 +63,13 @@ class Description extends React.Component{
           </div>
 
         </div>
-        <div className="body">
-
-        <h2>What travelers are saying</h2>
-        <p>{this.state.info[0].review[0]}</p>
-        <p>{this.state.info[0].review[1]}</p>
-
+        <div className="bottom-description-wraper">
+          <BottomDescription quotes={this.state.info[0].review} />
         </div>
 
+          <MidBar/>
+
       </div>
-
-
-
     </div>
 
     )
