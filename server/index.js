@@ -18,9 +18,11 @@ app.get('/api/carousels/:id', (req, res) => {
   const id = req.params.id;
   Carousel.find({ uniqueLoc: `${id}` })
     .then((response) => {
+      res.status(200)
       res.send(response);
     })
     .catch((err) => {
+      res.status(404)
       res.send(err);
     });
 });
