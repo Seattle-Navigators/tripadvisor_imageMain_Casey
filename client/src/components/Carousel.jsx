@@ -19,13 +19,13 @@ class Carousel extends React.Component {
     let { index } = this.state;
     const { imgData } = this.props;
     // this should set i to the begining of the array
-    if (index === imgData.length) {
+    if (index === imgData.length - 1) {
       index = -1;
     }
     index += 1;
     this.setState({
       index,
-    }); // eslint-disable-line
+    }); // eslint-jdisable-line
 
   }
 
@@ -50,10 +50,12 @@ class Carousel extends React.Component {
     const { index } = this.state;
     const { imgData } = this.props;
 
+
     return (
       <div className="SlideShow">
         <RightArrow rightFunc={this.nextImg} />
         <LeftArrow leftFunc={this.prevImg} />
+        /* istanbul ignore next */
         <SlideShow link={imgData[index].url} />
       </div>
     );

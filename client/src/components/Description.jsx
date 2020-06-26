@@ -31,7 +31,7 @@ class Description extends React.Component {
         });
       })
       .catch((err) => {
-        console.log(err); // eslint-disable-line
+        console.error(err); // eslint-disable-line
       });
   }
 
@@ -43,9 +43,11 @@ class Description extends React.Component {
       title,
       images,
     } = this.state;
-
+    // this variable makes full circles to displaty
     const fullRating = [...Array(rating)].map((item, i) => ((<span className="circle" key={i.toString()}> </span>)));
+    // this variable makes the empty circles
     const emptyRating = [...Array(5 - rating)].map((item, i) => ((<span className="empty-circle" key={i.toString()}> </span>)));
+    // this line of code makes a random 3 or 4 digit number and adds commas
     const revNumber = chance.integer({ min: 900, max: 2100 }).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
     return (
