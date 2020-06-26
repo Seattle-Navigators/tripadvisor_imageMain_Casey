@@ -15,14 +15,14 @@ app.use(express.static('public'));
 // app.get(' /api/carousel/:id', (req, res) => res.send('hello world!'));
 // /api/carousel/:id
 app.get('/api/carousels/:id', (req, res) => {
-  const id = req.params.id;
+  const { id } = req.params;
   Carousel.find({ uniqueLoc: `${id}` })
     .then((response) => {
-      res.status(200)
+      res.status(200);
       res.send(response);
     })
     .catch((err) => {
-      res.status(404)
+      res.status(404);
       res.send(err);
     });
 });

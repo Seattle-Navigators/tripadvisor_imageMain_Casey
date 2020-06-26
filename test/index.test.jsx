@@ -1,4 +1,5 @@
 //const sum = require('../client/src/components/sum.js');
+ eslint no-use-before-define: 0   // --> OFF
 import React from 'react';
 import Enzyme,{ shallow, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';

@@ -57,8 +57,4 @@ list.forEach((loc) => {
   data.push(location);
 });
 
-const addTestData = function () {
-  Carousel.create(data);
-};
-
-addTestData();
+Carousel.create(data);

@@ -10,7 +10,7 @@ const SlideShow = ({ link }) => (
 );
 
 SlideShow.propTypes = {
-  link: PropTypes.string.isRequired,
+  link: PropTypes.string, // eslint-disable-line
 };
 
 export default SlideShow;

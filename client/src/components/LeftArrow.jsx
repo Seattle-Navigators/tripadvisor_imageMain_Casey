@@ -16,7 +16,7 @@ const LeftArrow = ({ leftFunc }) => (
 );
 
 LeftArrow.propTypes = {
-  leftFunc: PropTypes.func,
+  leftFunc: PropTypes.func, // eslint-disable-line
 };
 
 export default LeftArrow;

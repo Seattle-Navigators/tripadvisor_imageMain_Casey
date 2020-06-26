@@ -1,7 +1,8 @@
 import React from 'react';
-import SlideShow from './SlideShow.jsx';
-import RightArrow from './RightArrow.jsx';
-import LeftArrow from './LeftArrow.jsx';
+import PropTypes from 'prop-types';
+import SlideShow from './SlideShow';
+import RightArrow from './RightArrow';
+import LeftArrow from './LeftArrow';
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -15,44 +16,53 @@ class Carousel extends React.Component {
 
   nextImg(event) {
     event.preventDefault();
-    let i = this.state.index;
-    const arrLength = this.props.imgData.length - 1;
-    //this should set i to the begining of the array
-    if(i === arrLength ){
-      i = -1;
+    let { index } = this.state;
+    const { imgData } = this.props;
+    // this should set i to the begining of the array
+    if (index === imgData.length) {
+      index = -1;
     }
-    i += 1;
+    index += 1;
     this.setState({
-      index: i
-    });
+      index,
+    }); // eslint-disable-line
 
   }
 
   prevImg(event) {
     event.preventDefault();
-    let i = this.state.index;
+    let { index } = this.state;
     // the arraylength has to be different so you dont skip an image
-    const arrLength = this.props.imgData.length;
+    const { imgData } = this.props;
+
     // this should set i to the end of the array
-    if (i < 1) {
-      i = arrLength;
-    };
-    i -= 1
+    if (index < 1) {
+      index = imgData.length;
+    }
+    index -= 1;
     this.setState({
-      index: i
+      index,
     });
   }
-  render(){
+
+  render() { // eslint-disable-line
+
+    const { index } = this.state;
+    const { imgData } = this.props;
 
     return (
       <div className="SlideShow">
-        <RightArrow rightFunc={this.nextImg}/>
-        <LeftArrow leftFunc={this.prevImg}/>
-        <SlideShow link={this.props.imgData[this.state.index].url}/>
+        <RightArrow rightFunc={this.nextImg} />
+        <LeftArrow leftFunc={this.prevImg} />
+        <SlideShow link={imgData[index].url} />
       </div>
-    )
+    );
   }
 }
+
+Carousel.propTypes = {
+  imgData: PropTypes.arrayOf(PropTypes.object ,PropTypes.string, PropTypes.bool, PropTypes.number), // eslint-disable-line
+}; // eslint-disable-line
 // it should take a prop from description
 
 // display images in a carousel

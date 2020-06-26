@@ -1,5 +1,5 @@
 import React from 'react';
-import Description from './Description.jsx';
+import Description from './Description';
 /*
 this app component should be the homepage in a way for the other componets
 

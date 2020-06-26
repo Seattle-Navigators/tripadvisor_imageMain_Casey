@@ -16,7 +16,7 @@ const RightArrow = ({ rightFunc }) => (
 );
 
 RightArrow.propTypes = {
-  rightFunc: PropTypes.func,
+  rightFunc: PropTypes.func, // eslint-disable-line
 };
 
 export default RightArrow;

@@ -1,3 +1,5 @@
+//const sum = require('../client/src/components/sum.js');
+
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import MidBar from '../client/src/components/MidBar.jsx'
