@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
-// const db = require('./index.js'); comenting out to avoid pomander error
+
+const db = require('./index.js'); // eslint-disable-line
 
 mongoose.Promise = global.Promise;
 
 const carouselSchema = new mongoose.Schema({
-  uniqueLoc: Number,
+  uniqueLoc: String,
+  title: String,
   rating: Number,
   review: [String],
   isHearted: Boolean,
