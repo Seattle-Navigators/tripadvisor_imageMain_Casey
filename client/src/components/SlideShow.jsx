@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SlideShow = ({ link }) => (
-  <div className="display-image">
-    <img src={link} alt="destination of amazement"></img>
 
+  <div className="display-image">
+    <img src={link} alt="destination of amazement" />
   </div>
 
 );

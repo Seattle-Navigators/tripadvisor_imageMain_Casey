@@ -3,14 +3,10 @@ import PropTypes from 'prop-types';
 
 const RightArrow = ({ rightFunc }) => (
 
-  <div
-    className="right-arrow-div"
-    onClick={rightFunc}
-    onKeyDown={rightFunc}
-    role="button"
-    tabIndex="0"
-  >
-    <i className="fas fa-arrow-right"> </i>
+  <div>
+    <button type="button" className="right-arrow-div" onClick={rightFunc} onKeyDown={rightFunc}>
+      <i className="fas fa-arrow-right"> </i>
+    </button>
   </div>
 
 );

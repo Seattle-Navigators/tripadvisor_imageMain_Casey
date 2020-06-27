@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import './style.css';
+import './styleModal.css';
 import Chance from 'chance';
 import BottomDescription from './BottomDescription';
 import MidBar from './MidBar';
 import Carousel from './Carousel';
+
 
 const chance = new Chance();
 class Description extends React.Component {
@@ -31,7 +33,7 @@ class Description extends React.Component {
         });
       })
       .catch((err) => {
-        console.log(err); // eslint-disable-line
+        console.error(err); // eslint-disable-line
       });
   }
 
@@ -43,9 +45,11 @@ class Description extends React.Component {
       title,
       images,
     } = this.state;
-
+    // this variable makes full circles to displaty
     const fullRating = [...Array(rating)].map((item, i) => ((<span className="circle" key={i.toString()}> </span>)));
+    // this variable makes the empty circles
     const emptyRating = [...Array(5 - rating)].map((item, i) => ((<span className="empty-circle" key={i.toString()}> </span>)));
+    // this line of code makes a random 3 or 4 digit number and adds commas
     const revNumber = chance.integer({ min: 900, max: 2100 }).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
     return (
@@ -91,13 +95,13 @@ class Description extends React.Component {
             </div>
 
           </div>
-          <div className="testme">
-            <Carousel imgData={images} />
-          </div>
           <div className="bottom-description-wraper">
             <BottomDescription quotes={review} />
           </div>
           <MidBar />
+        </div>
+        <div className="carousel-section">
+          <Carousel imgData={images} />
         </div>
       </div>
 
