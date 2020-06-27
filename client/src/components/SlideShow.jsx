@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const SlideShow = ({ link }) => (
 
   <div className="display-image">
-    <img src={link} alt="destination of amazement"> </img>
+    <img src={link} alt="destination of amazement" />
   </div>
 
 );

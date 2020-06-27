@@ -3,15 +3,28 @@ import PropTypes from 'prop-types';
 import SlideShow from './SlideShow';
 import RightArrow from './RightArrow';
 import LeftArrow from './LeftArrow';
+import Modal from './Modal';
 
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      show: false,
       index: 0,
     };
     this.nextImg = this.nextImg.bind(this);
     this.prevImg = this.nextImg.bind(this);
+    this.ModalWindow=this.ModalWindow.bind(this);
+    this.closeModalWindow=this.closeModalWindow.bind(this);
+  }
+
+  ModalWindow(e){
+    e.preventDefault()
+    this.setState({ show: true,})
+  }
+  closeModalWindow(e){
+    e.preventDefault()
+    this.setState({show: false})
   }
 
   nextImg(event) {
@@ -50,6 +63,8 @@ class Carousel extends React.Component {
 
     return (
       <div className="carousel-size">
+        <button onClick={this.ModalWindow}>click me</button>
+        <Modal show={this.state.show} imginfo={imgData} close={this.closeModalWindow}/>
         <SlideShow link={imgData[index].url} />
         <div className="left-overlay">
           <LeftArrow leftFunc={this.prevImg} />
