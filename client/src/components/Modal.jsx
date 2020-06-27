@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SlideShow from './SlideShow';
 
 
 class Modal extends React.Component {
   constructor(props){
     super(props)
     this.state={
-      view: 'gallery'
+      view: 'gallery',
+      index:this.props.cToFullIndex
     }
     this.clickHandler=this.clickHandler.bind(this);
     this.clickHandlerGallery=this.clickHandlerGallery.bind(this);
+  }
+  componentDidMount(){
+    this.setState({ index:this.props.cToFullIndex })
   }
   clickHandler(e) {
     e.preventDefault()
@@ -69,6 +74,9 @@ class Modal extends React.Component {
             </div>
             <div className="inside-offset">
               <div className="fullscreen-content">
+                <div>
+                <SlideShow link={this.props.imginfo[this.state.index].url} />
+                </div>
 
               </div>
               <div className="side-bar">

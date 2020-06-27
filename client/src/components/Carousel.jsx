@@ -63,8 +63,8 @@ class Carousel extends React.Component {
 
     return (
       <div className="carousel-size">
-        <button onClick={this.ModalWindow}>click me</button>
-        <Modal show={this.state.show} imginfo={imgData} close={this.closeModalWindow}/>
+        {/* <button onClick={this.ModalWindow}>click me</button>
+        <Modal show={this.state.show} imginfo={imgData} close={this.closeModalWindow}/> */}
         <SlideShow link={imgData[index].url} />
         <div className="left-overlay">
           <LeftArrow leftFunc={this.prevImg} />
