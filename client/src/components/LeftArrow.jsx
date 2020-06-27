@@ -3,16 +3,11 @@ import PropTypes from 'prop-types';
 
 const LeftArrow = ({ leftFunc }) => (
 
-  <div
-    className="left-arrow-div"
-    onClick={leftFunc}
-    onKeyDown={leftFunc}
-    role="button"
-    tabIndex="0"
-  >
-    <i className="fas fa-arrow-left"> </i>
+  <div>
+    <button type="button" className="left-arrow-div" onClick={leftFunc} onKeyDown={leftFunc}>
+      <i className="fas fa-arrow-left"> </i>
+    </button>
   </div>
-
 );
 
 LeftArrow.propTypes = {

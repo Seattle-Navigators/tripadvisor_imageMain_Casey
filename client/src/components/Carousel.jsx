@@ -23,9 +23,7 @@ class Carousel extends React.Component {
       index = -1;
     }
     index += 1;
-    this.setState({
-      index,
-    }); // eslint-jdisable-line
+    this.setState({ index }); // eslint-disable-line
 
   }
 
@@ -50,13 +48,15 @@ class Carousel extends React.Component {
     const { index } = this.state;
     const { imgData } = this.props;
 
-
     return (
-      <div className="SlideShow">
-        <RightArrow rightFunc={this.nextImg} />
-        <LeftArrow leftFunc={this.prevImg} />
-        /* istanbul ignore next */
+      <div className="carousel-size">
         <SlideShow link={imgData[index].url} />
+        <div className="left-overlay">
+          <LeftArrow leftFunc={this.prevImg} />
+        </div>
+        <div className="right-overlay">
+          <RightArrow rightFunc={this.nextImg} />
+        </div>
       </div>
     );
   }

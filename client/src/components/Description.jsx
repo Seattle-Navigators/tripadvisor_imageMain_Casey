@@ -93,13 +93,13 @@ class Description extends React.Component {
             </div>
 
           </div>
-          <div className="testme">
-            <Carousel imgData={images} />
-          </div>
           <div className="bottom-description-wraper">
             <BottomDescription quotes={review} />
           </div>
           <MidBar />
+        </div>
+        <div className="carousel-section">
+          <Carousel imgData={images} />
         </div>
       </div>
 
