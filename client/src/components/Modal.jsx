@@ -12,6 +12,7 @@ class Modal extends React.Component {
     this.state = {
       view: 'fullscreen',
       newindex: this.props.current,
+      galOption:this.props.GalBool
 
     };
 
@@ -45,7 +46,7 @@ class Modal extends React.Component {
       index = -1;
     }
     index += 1;
-    this.setState({ newindex:index }); // eslint-disable-line
+    this.setState({ newindex: index }); // eslint-disable-line
 
   }
 
@@ -77,8 +78,8 @@ class Modal extends React.Component {
   render() {
 
     const testOne = [];
-    const { imginfo, close } = this.props;
-    const { newindex, view } = this.state;
+    const { imginfo, close , GalBool} = this.props;
+    const { newindex, view,  } = this.state;
     imginfo.forEach((item) => testOne.push(item));
 
     const galleryitem = testOne.map((item, index) => (
@@ -92,8 +93,8 @@ class Modal extends React.Component {
     const fullRating = [...Array(userData.userRating)].map((item, i) => ((<span className="profile-circle" key={i.toString()}> </span>)));
     // this variable makes the empty circles
     const emptyRating = [...Array(5 - userData.userRating)].map((item, i) => ((<span className="profile-empty-circle" key={i.toString()}> </span>)));
-
-    if (view === 'gallery') {
+      console.log('inside modal', GalBool)
+    if ( GalBool === true || view === 'gallery' ) {
       return (
         <div className="modal-Container-gallery">
           <div className="outside-close">
