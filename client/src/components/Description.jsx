@@ -7,7 +7,6 @@ import BottomDescription from './BottomDescription';
 import MidBar from './MidBar';
 import Carousel from './Carousel';
 
-
 const chance = new Chance();
 class Description extends React.Component {
   constructor(props) {

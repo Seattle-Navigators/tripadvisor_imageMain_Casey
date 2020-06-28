@@ -11,20 +11,22 @@ class Carousel extends React.Component {
     this.state = {
       show: false,
       index: 0,
+      passIndex: 0,
     };
     this.nextImg = this.nextImg.bind(this);
-    this.prevImg = this.nextImg.bind(this);
-    this.ModalWindow=this.ModalWindow.bind(this);
-    this.closeModalWindow=this.closeModalWindow.bind(this);
+    this.prevImg = this.prevImg.bind(this);
+    this.ModalWindow = this.ModalWindow.bind(this);
+    this.closeModalWindow = this.closeModalWindow.bind(this);
   }
 
-  ModalWindow(e){
-    e.preventDefault()
-    this.setState({ show: true,})
+  ModalWindow(e) {
+    e.preventDefault();
+    this.setState({ show: true, passIndex: this.state.index });
   }
-  closeModalWindow(e){
-    e.preventDefault()
-    this.setState({show: false})
+
+  closeModalWindow(e) {
+    e.preventDefault();
+    this.setState({ show: false });
   }
 
   nextImg(event) {
@@ -58,19 +60,30 @@ class Carousel extends React.Component {
 
   render() { // eslint-disable-line
 
-    const { index } = this.state;
+    const { index, show, passIndex } = this.state;
     const { imgData } = this.props;
 
     return (
       <div className="carousel-size">
-        <button onClick={this.ModalWindow}>click me</button>
-        <Modal show={this.state.show} imginfo={imgData} close={this.closeModalWindow}/>
+        {show ?
+        <Modal imginfo={imgData}
+          close={this.closeModalWindow}
+          current={passIndex}
+
+        /> : <div> </div>}
         <SlideShow link={imgData[index].url} />
         <div className="left-overlay">
           <LeftArrow leftFunc={this.prevImg} />
         </div>
         <div className="right-overlay">
           <RightArrow rightFunc={this.nextImg} />
+        </div>
+        <div className="full-button-overlay">
+          <button className="full-button" onClick={this.ModalWindow} type="button">
+            <i className="fas fa-expand-alt"> </i>
+          Full view
+          </button>
+
         </div>
       </div>
     );

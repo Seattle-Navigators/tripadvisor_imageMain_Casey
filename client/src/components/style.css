@@ -152,14 +152,14 @@ h2{
   border: grey solid 0.5px;
 }
 
-
-
-img{
+.img-normal{
 
   flex-grow: 1;
   width: 100%;
   height: 100%;
 }
+
+
 .carousel-section{
   align-items: center;
   display: flex;
@@ -189,7 +189,28 @@ img{
   object-fit: fill;
 }
 
+.full-button-overlay{
+  position: absolute;
+  z-index: 1;
+  right: 33%;
+  width: 120px;
+  height: 60px;
+  top:40%;
+}
 
+.full-button{
+  background-color: black;
+  color: #fff;
+  opacity: 10%;
+  width: 120px;
+  height: 60px;
+}
+.full-button:hover{
+  opacity: 90%;
+}
+.full-button .fas{
+  color: #fff;
+}
 .right-arrow-div{
   background-color: black;
   opacity: 10%;
