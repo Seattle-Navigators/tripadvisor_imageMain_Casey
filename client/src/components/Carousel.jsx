@@ -11,16 +11,18 @@ class Carousel extends React.Component {
     this.state = {
       show: false,
       index: 0,
+      passIndex: 0,
     };
     this.nextImg = this.nextImg.bind(this);
-    this.prevImg = this.nextImg.bind(this);
+    this.prevImg = this.prevImg.bind(this);
     this.ModalWindow=this.ModalWindow.bind(this);
     this.closeModalWindow=this.closeModalWindow.bind(this);
   }
 
   ModalWindow(e){
     e.preventDefault()
-    this.setState({ show: true,})
+    this.setState({ show: true, passIndex: this.state.index})
+    console.log('test called in carousel modalwindow : ',this.state.passIndex)
   }
   closeModalWindow(e){
     e.preventDefault()
@@ -63,8 +65,10 @@ class Carousel extends React.Component {
 
     return (
       <div className="carousel-size">
-        {/* <button onClick={this.ModalWindow}>click me</button>
-        <Modal show={this.state.show} imginfo={imgData} close={this.closeModalWindow}/> */}
+        <button onClick={this.ModalWindow}>click me</button>
+        {console.log('test called in carousel -> modal: ',this.state.passIndex)}
+        <Modal show={this.state.show} imginfo={imgData} close={this.closeModalWindow}
+        current={this.state.passIndex}/>
         <SlideShow link={imgData[index].url} />
         <div className="left-overlay">
           <LeftArrow leftFunc={this.prevImg} />

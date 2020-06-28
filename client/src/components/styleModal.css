@@ -71,6 +71,8 @@
   display: flex;
   flex:0;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width:70%;
   height: 100%;
   background-color: black;
@@ -83,4 +85,37 @@
   width:30%;
   height: 100%;
   background-color: white;
+}
+
+
+.Modal-img-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.img-full{
+  width:100%;
+  max-height: 800px;
+  object-fit: contain;
+}
+
+.modal-right-arrow-overlay{
+  z-index: 13;
+  position: absolute;
+  right:31%;
+  width: 60px;
+  height: 60px;
+  top:50%;
+
+}
+.modal-left-arrow-overlay{
+  z-index: 13;
+  position: absolute;
+  left:1rem;
+  width: 60px;
+  height: 60px;
+  top:50%;
 }
