@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 
 const SlideShow = ({ link }) => (
 
-    <div className="display-image">
-      <img className="img-normal" src={link} alt="destination of amazement" />
-    </div>
-
-
+  <div className="display-image">
+    <img className="img-normal" src={link} alt="destination of amazement" />
+  </div>
 );
 
 SlideShow.propTypes = {

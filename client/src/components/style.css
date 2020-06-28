@@ -189,7 +189,28 @@ h2{
   object-fit: fill;
 }
 
+.full-button-overlay{
+  position: absolute;
+  z-index: 1;
+  right: 33%;
+  width: 120px;
+  height: 60px;
+  top:40%;
+}
 
+.full-button{
+  background-color: black;
+  color: #fff;
+  opacity: 10%;
+  width: 120px;
+  height: 60px;
+}
+.full-button:hover{
+  opacity: 90%;
+}
+.full-button .fas{
+  color: #fff;
+}
 .right-arrow-div{
   background-color: black;
   opacity: 10%;

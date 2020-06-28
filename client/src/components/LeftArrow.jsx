@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const LeftArrow = ({ leftFunc }) => (
 
   <div>
-    <button type="button" className="left-arrow-div" onClick={leftFunc} >
+    <button type="button" className="left-arrow-div" onClick={leftFunc}>
       <i className="fas fa-arrow-left"> </i>
     </button>
   </div>
