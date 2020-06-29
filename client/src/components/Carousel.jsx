@@ -22,15 +22,15 @@ class Carousel extends React.Component {
   }
 
   ModalWindow(e) {
+    const { show, passIndex, index} = this.state;
     e.preventDefault();
-    this.setState({ show: true, passIndex: this.state.index });
+    this.setState({ show: true, passIndex: index });
   }
 
   ModalWindowGal(e) {
+    const { show, passIndex, index} = this.state
     e.preventDefault();
-    console.log(`was i called`)
-    this.setState({ showGallery:true, show:true,  passIndex: this.state.index });
-    console.log(this.state.showGallery)
+    this.setState({ showGallery: true, show: true,  passIndex: index });
   }
 
   closeModalWindow(e) {

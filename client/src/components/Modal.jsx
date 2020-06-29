@@ -12,11 +12,11 @@ class Modal extends React.Component {
     this.state = {
       view: 'fullscreen',
       newindex: this.props.current,
-      galOption:this.props.GalBool
+      galOption:this.props.GalBool,
 
     };
-    this.updateHelpful=this.updateHelpful.bind(this);
-    this.updateReported=this.updateReported.bind(this);
+    this.updateHelpful = this.updateHelpful.bind(this);
+    this.updateReported = this.updateReported.bind(this);
     this.MiniSlide = this.MiniSlide.bind(this);
     this.SlideOnClick = this.SlideOnClick.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
@@ -31,32 +31,33 @@ class Modal extends React.Component {
   updateHelpful(e){
     const { imginfo } = this.props;
     const { newindex } = this.state;
-    const idTag=imginfo[newindex].imgId
-    e.preventDefault()
+    const idTag = imginfo[newindex].imgId;
+    e.preventDefault();
     axios.patch(`/api/carousels/helpful/${idTag}`)
-    .then((response)=>{
-      console.log(`this imgID:${idTag} helpful state has been updated `)
-    })
-    .catch((err) => {
-      console.error(err); // eslint-disable-line
-    });
+      .then(() => {
+        console.log(`this imgID:${idTag} helpful state has been updated `);
+      })
+      .catch((err) => {
+        console.error(err); // eslint-disable-line
+      });
 
   }
 
-  updateReported(e){
+  updateReported(e) {
     const { imginfo } = this.props;
     const { newindex } = this.state;
-    const idTag=imginfo[newindex].imgId
-    e.preventDefault()
+    const idTag = imginfo[newindex].imgId;
+    e.preventDefault();
     axios.patch(`/api/carousels/helpful/${idTag}`)
-    .then((response)=>{
-      console.log(`this imgID:${idTag} helpful state has been updated `)
-    })
-    .catch((err) => {
-      console.error(err); // eslint-disable-line
-    });
+      .then(() => {
+        console.log(`this imgID:${idTag} helpful state has been updated `);
+      })
+      .catch((err) => {
+        console.error(err); // eslint-disable-line
+      });
 
   }
+
   clickHandler(e) {
     e.preventDefault();
     this.setState({ view: 'fullscreen' });
@@ -105,6 +106,7 @@ class Modal extends React.Component {
     });
     this.clickHandler(event);
   }
+
   MiniSlide(index) {
 
     this.setState({
@@ -116,19 +118,16 @@ class Modal extends React.Component {
   render() {
 
     const testOne = [];
-    const { imginfo, close , GalBool} = this.props;
-    const { newindex, view,  } = this.state;
-    const idTag=imginfo[newindex].imgId
+    const { imginfo, close, GalBool } = this.props;
+    const { newindex, view } = this.state;
     imginfo.forEach((item) => testOne.push(item));
-    console.log(idTag)
-
     const galleryitem = testOne.map((item, index) => (
-      <div className="gallery-box" key={index + 10}>
+      <div className="gallery-box" key={`${index}` + 10}>
         <img className="gallery-box-sizing" src={testOne[index].url} alt="mini-pic-gallery" onClick={() => { return this.SlideOnClick(index); }} />
       </div>
     ));
     const slideItem = testOne.map((item, index) => (
-      <MiniSlider  key={index+47}mLink={testOne[index].url} setIndex={this.MiniSlide} i={index}/>
+      <MiniSlider key={`${index}47`} mLink={testOne[index].url} setIndex={this.MiniSlide} i={index} />
     ));
 
     const userData = imginfo[newindex];
@@ -136,8 +135,8 @@ class Modal extends React.Component {
     const fullRating = [...Array(userData.userRating)].map((item, i) => ((<span className="profile-circle" key={i.toString()}> </span>)));
     // this variable makes the empty circles
     const emptyRating = [...Array(5 - userData.userRating)].map((item, i) => ((<span className="profile-empty-circle" key={i.toString()}> </span>)));
-      console.log('inside modal', GalBool)
-    if ( GalBool === true || view === 'gallery' ) {
+
+    if (GalBool === true || view === 'gallery') {
       return (
         <div className="modal-Container-gallery">
           <div className="outside-close">
@@ -146,7 +145,7 @@ class Modal extends React.Component {
             </button>
 
           </div>
-            <div className="inside-offset">
+        <div className="inside-offset">
               <div className="scroll-content">
                 <div className="height-limiter">
                   {galleryitem}
@@ -157,14 +156,14 @@ class Modal extends React.Component {
               </div>
             </div>
 
-          </div>
-        )
-      }else {
+        </div>
+        );
+      } else {
 
           return(
           <div className="modal-Container-fullscreen">
             <div className="outside-close">
-              <button className="modal-close-button"onClick={close}>
+              <button className="modal-close-button" onClick={close} type="button">
                 <i className="fas fa-times"> </i>
               </button>
             </div>
@@ -173,20 +172,20 @@ class Modal extends React.Component {
               <div className="full-content-styling">
                 <ModalSlide urlString={imginfo[newindex].url} />
                 <div className="gallery-overlay">
-                  <button className="gallery-button"onClick={this.clickHandlerGallery}>
+                  <button className="gallery-button" onClick={this.clickHandlerGallery} type="button">
                     <i className="fas fa-th-large"> </i>
                     Gallery
                   </button>
                 </div>
                 <div className="helpful-overlay">
-                    <button className="helpful-button"onClick={this.updateHelpful}>
+                    <button className="helpful-button" onClick={this.updateHelpful} type="button">
                       <i className="far fa-thumbs-up"> </i>
                         Helpful
                     </button>
                   </div>
 
                   <div className="reported-overlay">
-                    <button className="reported-button"onClick={this.updateReported}>
+                    <button className="reported-button" onClick={this.updateReported} type="button">
                       <i className="fas fa-flag"> </i>
                       Reported
                     </button>
@@ -195,22 +194,23 @@ class Modal extends React.Component {
                   <LeftArrow leftFunc={this.prevImg} />
                 </div>
                 <div className="modal-right-arrow-overlay">
-                  < RightArrow rightFunc={this.nextImg}/>
+                  <RightArrow rightFunc={this.nextImg} />
                 </div>
                 <div className="mini-slider-container">
                   {slideItem}
 
                 </div>
               </div>
-              {newindex >= 0?<div className="side-bar">
+              {newindex >= 0 ? <div className="side-bar">
                 <div className="user-profile-container">
                   <div className="user-profile-offset">
                   <div className="left-profile-section">
-                  <img className="profile-pic" src={userData.profile}/>
+                  <img className="profile-pic" src={userData.profile} alt="user profile" />
                 </div>
               <div className="user-description">
                 <div className="user-rating">
-                {fullRating}{emptyRating}
+                {fullRating}
+                {emptyRating}
                 </div>
                 <div className="user-title">
                   {`${userData.titleTwo}`}
@@ -221,18 +221,16 @@ class Modal extends React.Component {
               </div>
                   </div>
               </div>
-            </div> :<div></div>}
+            </div> :<div> </div>}
 
             </div>
 
             </div>
 
           </div>
-          )
+          );
         }
       }
     }
-
-
 
 export default Modal;
