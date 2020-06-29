@@ -10,7 +10,7 @@ class Carousel extends React.Component {
     super(props);
     this.state = {
       show: false,
-      showGallery: true,
+      showGallery: false,
       index: 0,
       passIndex: 0,
     };

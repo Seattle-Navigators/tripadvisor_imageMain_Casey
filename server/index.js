@@ -26,5 +26,33 @@ app.get('/api/carousels/:id', (req, res) => {
       res.send(err);
     });
 });
+app.patch('/api/carousels/helpful/:imgId',(req,res)=>{
+  const { imgId } = req.params
+  Carousel.collection.updateOne({'images.imgId': `${imgId}`}, {
+    $set: { 'images.$.helpful': true },
+  })
+  .then((response) => {
+      res.status(200);
+      res.send(response);
+    })
+    .catch((err) => {
+      res.status(404);
+      res.send(err);
+    });
+})
+app.patch('/api/carousels/reported/:imgId',(req,res)=>{
+  const { imgId } = req.params
+  Carousel.collection.updateOne({'images.imgId': `${imgId}`}, {
+    $set: { 'images.$.reported': true },
+  })
+  .then((response) => {
+      res.status(200);
+      res.send(response);
+    })
+    .catch((err) => {
+      res.status(404);
+      res.send(err);
+    });
+})
 
 app.listen(port, () => console.log(`server listening to locolhost${port}`));

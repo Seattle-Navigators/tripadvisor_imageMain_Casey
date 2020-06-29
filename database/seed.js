@@ -44,6 +44,7 @@ list.forEach((loc) => {
     const profile = 'https://ctj-hr-fec-carouseldata.s3-us-west-2.amazonaws.com/sampleData/profile.JPG';
 
     location.images.push({
+      imgId:`${loc}${i}`,
       url: `${urlStart}${rando}${urlEnd}`,
       helpful: false,
       reported: false,

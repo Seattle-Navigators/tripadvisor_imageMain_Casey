@@ -65,6 +65,32 @@
   color: white;
   border:0;
 }
+.helpful-button{
+  z-index: 13;
+  opacity: 20%;
+  position: absolute;
+  right:28%;
+  bottom:12%;
+  background-color: white;
+  width: 120px;
+  height: 38px;
+}
+.helpful-button:hover{
+  opacity: 90%;
+}
+.reported-button{
+  z-index: 13;
+  opacity: 20%;
+  position: absolute;
+  right:37%;
+  bottom:12%;
+  background-color: white;
+  width: 100px;
+  height: 38px;
+}
+.reported-button:hover{
+  opacity: 90%;
+}
 .gallery-button{
   z-index: 13;
   opacity: 10%;
@@ -78,6 +104,7 @@
 .gallery-button:hover{
   opacity: 90%;
 }
+.helpful-overlay
 .inside-offset{
   flex: 1;
   flex-direction: row;
@@ -124,7 +151,33 @@
 .full-content-styling{
   width:75%
 }
-
+.mini-slider-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: absolute;
+  bottom: 2%;
+  width: 75%;
+  height: 80px;
+  background-color: rgba(0, 0,0,0.2);
+  opacity:0.5;
+}
+.mini-slider-container:hover{
+  opacity: 1;
+}
+.mini-container{
+  margin: 0,10,0,10;
+  padding: 0,20,0,20;
+  width: 75px;
+  height: 75px;
+}
+.mini-container:hover{
+  border:4px solid #00a680;
+}
+.mini-image-styling{
+width: 75px;
+height: 75px;
+}
 .side-bar{
   display: flex;
   flex:1;

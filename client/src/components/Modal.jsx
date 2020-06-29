@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import ModalSlide from './ModalSlide';
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
-
-
+import MiniSlider from './MiniSlider';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -15,7 +15,9 @@ class Modal extends React.Component {
       galOption:this.props.GalBool
 
     };
-
+    this.updateHelpful=this.updateHelpful.bind(this);
+    this.updateReported=this.updateReported.bind(this);
+    this.MiniSlide = this.MiniSlide.bind(this);
     this.SlideOnClick = this.SlideOnClick.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
     this.clickHandlerGallery = this.clickHandlerGallery.bind(this);
@@ -26,6 +28,35 @@ class Modal extends React.Component {
   //   this.setState({ index:this.props.current })
   // }
 
+  updateHelpful(e){
+    const { imginfo } = this.props;
+    const { newindex } = this.state;
+    const idTag=imginfo[newindex].imgId
+    e.preventDefault()
+    axios.patch(`/api/carousels/helpful/${idTag}`)
+    .then((response)=>{
+      console.log(`this imgID:${idTag} helpful state has been updated `)
+    })
+    .catch((err) => {
+      console.error(err); // eslint-disable-line
+    });
+
+  }
+
+  updateReported(e){
+    const { imginfo } = this.props;
+    const { newindex } = this.state;
+    const idTag=imginfo[newindex].imgId
+    e.preventDefault()
+    axios.patch(`/api/carousels/helpful/${idTag}`)
+    .then((response)=>{
+      console.log(`this imgID:${idTag} helpful state has been updated `)
+    })
+    .catch((err) => {
+      console.error(err); // eslint-disable-line
+    });
+
+  }
   clickHandler(e) {
     e.preventDefault();
     this.setState({ view: 'fullscreen' });
@@ -74,18 +105,30 @@ class Modal extends React.Component {
     });
     this.clickHandler(event);
   }
+  MiniSlide(index) {
+
+    this.setState({
+      newindex: index,
+    });
+
+  }
 
   render() {
 
     const testOne = [];
     const { imginfo, close , GalBool} = this.props;
     const { newindex, view,  } = this.state;
+    const idTag=imginfo[newindex].imgId
     imginfo.forEach((item) => testOne.push(item));
+    console.log(idTag)
 
     const galleryitem = testOne.map((item, index) => (
       <div className="gallery-box" key={index + 10}>
         <img className="gallery-box-sizing" src={testOne[index].url} alt="mini-pic-gallery" onClick={() => { return this.SlideOnClick(index); }} />
       </div>
+    ));
+    const slideItem = testOne.map((item, index) => (
+      <MiniSlider  key={index+47}mLink={testOne[index].url} setIndex={this.MiniSlide} i={index}/>
     ));
 
     const userData = imginfo[newindex];
@@ -135,11 +178,28 @@ class Modal extends React.Component {
                     Gallery
                   </button>
                 </div>
+                <div className="helpful-overlay">
+                    <button className="helpful-button"onClick={this.updateHelpful}>
+                      <i className="far fa-thumbs-up"> </i>
+                        Helpful
+                    </button>
+                  </div>
+
+                  <div className="reported-overlay">
+                    <button className="reported-button"onClick={this.updateReported}>
+                      <i className="fas fa-flag"> </i>
+                      Reported
+                    </button>
+                  </div>
                 <div className="modal-left-arrow-overlay">
                   <LeftArrow leftFunc={this.prevImg} />
                 </div>
                 <div className="modal-right-arrow-overlay">
                   < RightArrow rightFunc={this.nextImg}/>
+                </div>
+                <div className="mini-slider-container">
+                  {slideItem}
+
                 </div>
               </div>
               {newindex >= 0?<div className="side-bar">
@@ -172,7 +232,6 @@ class Modal extends React.Component {
         }
       }
     }
-
 
 
 
