@@ -10,23 +10,32 @@ class Carousel extends React.Component {
     super(props);
     this.state = {
       show: false,
+      showGallery: false,
       index: 0,
       passIndex: 0,
     };
     this.nextImg = this.nextImg.bind(this);
     this.prevImg = this.prevImg.bind(this);
     this.ModalWindow = this.ModalWindow.bind(this);
+    this.ModalWindowGal = this.ModalWindowGal.bind(this);
     this.closeModalWindow = this.closeModalWindow.bind(this);
   }
 
   ModalWindow(e) {
+    const { show, passIndex, index} = this.state;
     e.preventDefault();
-    this.setState({ show: true, passIndex: this.state.index });
+    this.setState({ show: true, passIndex: index });
+  }
+
+  ModalWindowGal(e) {
+    const { show, passIndex, index} = this.state
+    e.preventDefault();
+    this.setState({ showGallery: true, show: true,  passIndex: index });
   }
 
   closeModalWindow(e) {
     e.preventDefault();
-    this.setState({ show: false });
+    this.setState({ show: false, showGallery: false });
   }
 
   nextImg(event) {
@@ -60,7 +69,7 @@ class Carousel extends React.Component {
 
   render() { // eslint-disable-line
 
-    const { index, show, passIndex } = this.state;
+    const { index, show, passIndex, showGallery } = this.state;
     const { imgData } = this.props;
 
     return (
@@ -69,6 +78,7 @@ class Carousel extends React.Component {
         <Modal imginfo={imgData}
           close={this.closeModalWindow}
           current={passIndex}
+          GalBool={showGallery}
 
         /> : <div> </div>}
         <SlideShow link={imgData[index].url} />
@@ -85,6 +95,12 @@ class Carousel extends React.Component {
           </button>
 
         </div>
+        <div className="to-gallery-overlay">
+          <button className="to-gallery-button"onClick={this.ModalWindowGal}>
+          <i className="fas fa-camera"></i>
+               All photos
+          </button>
+         </div>
       </div>
     );
   }

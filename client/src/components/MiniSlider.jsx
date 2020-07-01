@@ -1,13 +1,15 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-// class MiniSlider extends React.Component{
-//   constructor(props){
-//     super(props)
-//   }
+const MiniSlider = (props) => {
 
-// }
+  return (
 
+  <div className="mini-container">
+    <img className="mini-image-styling" src={props.mLink} alt="mini slider on fullscreen" onClick={() => props.setIndex(props.i)} />
 
+  </div>
+  );
+};
 
-// export default MiniSlider
+export default MiniSlider;
