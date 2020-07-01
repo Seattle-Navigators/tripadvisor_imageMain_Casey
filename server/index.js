@@ -5,7 +5,7 @@ const path = require('path')
 const axios = require('axios'); // eslint-disable-line
 
 const app = express();
-const port = 3003;
+const port = 3007;
 
 const bundlePath = '/home/smolcoda/FEC/tripadvisor_imageMain_casey/public/bundle.js';
 
