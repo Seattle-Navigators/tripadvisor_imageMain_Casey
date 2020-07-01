@@ -33,7 +33,7 @@ class Modal extends React.Component {
     const { newindex } = this.state;
     const idTag = imginfo[newindex].imgId;
     e.preventDefault();
-    axios.patch(`/api/carousels/helpful/${idTag}`)
+    axios.patch(`${idTag}/api/carousels/helpful`)
       .then(() => {
         console.log(`this imgID:${idTag} helpful state has been updated `);
       })
@@ -48,7 +48,7 @@ class Modal extends React.Component {
     const { newindex } = this.state;
     const idTag = imginfo[newindex].imgId;
     e.preventDefault();
-    axios.patch(`/api/carousels/helpful/${idTag}`)
+    axios.patch(`${idTag}/api/carousels/helpful`)
       .then(() => {
         console.log(`this imgID:${idTag} helpful state has been updated `);
       })

@@ -1,20 +1,24 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const Carousel = require('../database/Carousel.js');
+const path = require('path')
 const axios = require('axios'); // eslint-disable-line
 
 const app = express();
-const port = 3000;
+const port = 3003;
+
+const bundlePath = '/home/smolcoda/FEC/tripadvisor_imageMain_casey/public/bundle.js';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true,
 }));
 
-app.use(express.static('public'));
+app.use('/:id/imageMain',express.static('public'));
 // app.get(' /api/carousel/:id', (req, res) => res.send('hello world!'));
 // /api/carousel/:id
-app.get('/api/carousels/:id', (req, res) => {
+
+app.get('/:id/api/carousels', (req, res) => {
   const { id } = req.params;
   Carousel.find({ uniqueLoc: `${id}` })
     .then((response) => {
@@ -26,7 +30,7 @@ app.get('/api/carousels/:id', (req, res) => {
       res.send(err);
     });
 });
-app.patch('/api/carousels/helpful/:imgId', (req, res) => {
+app.patch('/:imgId/api/carousels/helpful', (req, res) => {
   const { imgId } = req.params;
   Carousel.collection.updateOne({ 'images.imgId': `${imgId}` }, {
     $set: { 'images.$.helpful': true },
@@ -40,7 +44,7 @@ app.patch('/api/carousels/helpful/:imgId', (req, res) => {
       res.send(err);
     });
 });
-app.patch('/api/carousels/reported/:imgId', (req, res) => {
+app.patch('/:imgId/api/carousels/reported', (req, res) => {
   const { imgId } = req.params;
   Carousel.collection.updateOne({ 'images.imgId': `${imgId}` }, {
     $set: { 'images.$.reported': true },
