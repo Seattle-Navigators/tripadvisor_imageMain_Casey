@@ -56,6 +56,7 @@ list.forEach((loc) => {
     });
   }
   data.push(location);
+  console.log('testing log');
 });
 
 Carousel.create(data);

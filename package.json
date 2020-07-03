@@ -7,8 +7,8 @@
     "start": "nodemon server/index.js",
     "dev:react": "webpack -d --watch",
     "build": "webpack",
-    "build:prod": "webpack -- mode production",
-    "server:prod": "node database/seed.js && node server/index.js",
+    "build:prod": "webpack --mode production",
+    "server:prod": "node database/seed.js & node server/index.js",
     "db:seed": "node database/seed.js",
     "test": "jest",
     "check": "jest-coverage"
