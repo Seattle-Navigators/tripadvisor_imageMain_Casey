@@ -1,12 +1,13 @@
 import React from 'react';
-
+import {FaHiking} from 'react-icons/fa'
+import {BsArrowDownShort} from 'react-icons/bs';
 const MidBar = () => (
   <div className="bar-border">
     <div className="midbar">
       <div className="midbar-spacing">
         <div id="walking-icon">
           <span>
-            <i className="fas fa-hiking"> </i>
+            <FaHiking />
           </span>
         </div>
         <div>
@@ -25,7 +26,7 @@ const MidBar = () => (
     <button type="button" className="black-bar">
       <div id="white-text">
         See available tour options
-        <i className="fas fa-arrow-down"> </i>
+        <BsArrowDownShort />
       </div>
     </button>
   </div>

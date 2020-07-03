@@ -190,12 +190,12 @@ h2{
 }
 
 .full-button-overlay{
-  position: absolute;
+  position: fixed;
   z-index: 1;
   right: 33%;
   width: 120px;
   height: 60px;
-  top:40%;
+  top:30%;
 }
 
 .full-button{
@@ -224,19 +224,19 @@ h2{
 opacity: 90%;
 }
 .right-overlay{
-  position: absolute;
+  position: fixed;
   z-index: 1;
   right: 3rem;
   width: 60px;
   height: 60px;
-  top:40%;
+  top:30%;
 }
 .left-overlay{
-  position: absolute;
+  position: fixed;
   z-index: 1;
   width: 60px;
   height: 60px;
-  top:40%;
+  top:30%;
 }
 
 .left-arrow-div{

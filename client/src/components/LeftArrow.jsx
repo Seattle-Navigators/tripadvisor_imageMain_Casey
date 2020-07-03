@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {AiOutlineArrowLeft} from 'react-icons/ai';
 
 const LeftArrow = ({ leftFunc }) => (
 
   <div>
     <button type="button" className="left-arrow-div" onClick={leftFunc}>
-      <i className="fas fa-arrow-left"> </i>
+      <AiOutlineArrowLeft/>
     </button>
   </div>
 );
