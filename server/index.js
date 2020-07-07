@@ -1,20 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const Carousel = require('../database/Carousel.js');
-const path = require('path')
+const path = require('path');
 const axios = require('axios'); // eslint-disable-line
+const Carousel = require('../database/Carousel.js');
 
 const app = express();
-const port = 80;
+const port = 3012;
 
-const bundlePath = '/home/smolcoda/FEC/tripadvisor_imageMain_casey/public/bundle.js';
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true,
 }));
 
-app.use('/:id/imageMain',express.static('public'));
+app.use('/:id/imageMain', express.static('public'));
 // app.get(' /api/carousel/:id', (req, res) => res.send('hello world!'));
 // /api/carousel/:id
 

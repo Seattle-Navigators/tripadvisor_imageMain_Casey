@@ -1,12 +1,13 @@
 version: '3'
 services:
-  web:
+  carousel:
     build: './'
-    ports:
-      - '81:80'
     depends_on:
-      - 'mongo'
-  mongo:
-    image: mongo:latest
+      - 'database'
+    ports:
+      - '3012:3012'
+
+  database:
+    image: mongo:4.2.7
     ports:
       - '27017:27017'

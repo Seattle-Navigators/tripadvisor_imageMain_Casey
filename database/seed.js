@@ -59,4 +59,12 @@ list.forEach((loc) => {
   console.log('testing log');
 });
 
-Carousel.create(data);
+Carousel.create(data)
+  // .then(() => {
+  //   console.log('success');
+  //   mongoose.connection.close();
+  // })
+  // .catch((err) => {
+  //   console.log(err);
+  //   mongoose.connection.close();
+  // });

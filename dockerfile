@@ -8,6 +8,9 @@ RUN npm install
 COPY . .
 RUN npm run build:prod
 
+ENV PORT="3012"
 
-EXPOSE 80
+ENV DB="mongo"
+
+EXPOSE 3012
 CMD [ "npm", "run", "server:prod" ]
