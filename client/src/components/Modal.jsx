@@ -5,6 +5,9 @@ import ModalSlide from './ModalSlide';
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
 import MiniSlider from './MiniSlider';
+import {AiOutlineClose, AiOutlineLike} from 'react-icons/ai';
+import {RiWindowsLine} from 'react-icons/ri';
+import {FaRegFlag} from 'react-icons/fa';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -141,7 +144,7 @@ class Modal extends React.Component {
         <div className="modal-Container-gallery">
           <div className="outside-close">
             <button className="modal-close-button" onClick={close} type="button">
-              <i className="fas fa-times"> </i>
+              <AiOutlineClose />
             </button>
 
           </div>
@@ -164,7 +167,7 @@ class Modal extends React.Component {
           <div className="modal-Container-fullscreen">
             <div className="outside-close">
               <button className="modal-close-button" onClick={close} type="button">
-                <i className="fas fa-times"> </i>
+                <AiOutlineClose />
               </button>
             </div>
           <div className="inside-offset">
@@ -173,20 +176,20 @@ class Modal extends React.Component {
                 <ModalSlide urlString={imginfo[newindex].url} />
                 <div className="gallery-overlay">
                   <button className="gallery-button" onClick={this.clickHandlerGallery} type="button">
-                    <i className="fas fa-th-large"> </i>
+                    <RiWindowsLine />
                     Gallery
                   </button>
                 </div>
                 <div className="helpful-overlay">
                     <button className="helpful-button" onClick={this.updateHelpful} type="button">
-                      <i className="far fa-thumbs-up"> </i>
+                      <AiOutlineLike />
                         Helpful
                     </button>
                   </div>
 
                   <div className="reported-overlay">
                     <button className="reported-button" onClick={this.updateReported} type="button">
-                      <i className="fas fa-flag"> </i>
+                      <FaRegFlag />
                       Reported
                     </button>
                   </div>

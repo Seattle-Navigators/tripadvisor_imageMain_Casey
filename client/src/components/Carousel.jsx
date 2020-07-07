@@ -4,6 +4,8 @@ import SlideShow from './SlideShow';
 import RightArrow from './RightArrow';
 import LeftArrow from './LeftArrow';
 import Modal from './Modal';
+import {FiCamera} from 'react-icons/fi';
+import {AiOutlineExpandAlt} from 'react-icons/ai';
 
 class Carousel extends React.Component {
   constructor(props) {
@@ -90,14 +92,14 @@ class Carousel extends React.Component {
         </div>
         <div className="full-button-overlay">
           <button className="full-button" onClick={this.ModalWindow} type="button">
-            <i className="fas fa-expand-alt"> </i>
+          <AiOutlineExpandAlt/>
           Full view
           </button>
 
         </div>
         <div className="to-gallery-overlay">
           <button className="to-gallery-button"onClick={this.ModalWindowGal}>
-          <i className="fas fa-camera"></i>
+          <FiCamera/>
                All photos
           </button>
          </div>

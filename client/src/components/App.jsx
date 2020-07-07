@@ -7,7 +7,6 @@ theer shoudld be three components rendered one is a description one is the image
 */
 const App = (props) => (
   <div id="image-main">
-    C.O.M.L.L.O
   <Description testOne={props.test} />
   </div>
 );

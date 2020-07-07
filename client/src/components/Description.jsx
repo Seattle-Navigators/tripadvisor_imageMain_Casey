@@ -3,6 +3,7 @@ import axios from 'axios';
 import './style.css';
 import './styleModal.css';
 import Chance from 'chance';
+import {FiHeart, FiExternalLink } from 'react-icons/fi';
 import BottomDescription from './BottomDescription';
 import MidBar from './MidBar';
 import Carousel from './Carousel';
@@ -68,10 +69,10 @@ class Description extends React.Component {
               <div className="header">
                 <h1>{title}</h1>
                 <div className="right-header">
-                  {isHearted ? <i className="fas fa-heart"> </i> : <i className="far fa-heart"> </i>}
+                  {isHearted ?  <FiHeart/> : <FiHeart/>}
                 </div>
                 <div className="right-icon">
-                  <i className="fas fa-external-link-alt"> </i>
+                  <FiExternalLink/>
                 </div>
 
                 <div className="rating">
